@@ -1,4 +1,4 @@
-# API-Chiken
+# API-Chicken
 
 Main Technologies used : Node.js, JS, MongoDB, Express, nodemon, mongoose.
 
