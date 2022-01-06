@@ -2,10 +2,13 @@
 
 Main Technologies used : Node.js, JS, MongoDB, Express, nodemon, mongoose.
 
-To run the project please execute the following commands: 
+# Installation and execution
 
-1. npm install
-2. npm start
+To run the project please execute the following commands:
+
+1. Move to the chicken_project folder.
+2. npm install.
+3. npm start.
 
 # GET
 
