@@ -12,4 +12,20 @@ router.get('/', (req, res) => {
     })
   });
 
+// POST a new chicken to the chicken_db
+router.post('/', (req, res) => {
+    const newRecord = new ChickenModel ({
+      name: req.body.name,
+      birthday: req.body.birthday,
+      weight: req.body.weight,
+      steps: req.body.steps,
+      isRunning: req.body.isRunning
+    });
+  
+    newRecord.save((err, docs) => {
+      if (!err) res.send(docs);
+      else console.log('Error creating new data : ' + err);
+    })
+  });
+
   module.exports = router;
