@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const CHickenModel = mongoose.model(
+const ChickenModel = mongoose.model(
   "chicken_db",
   {
     name: {
@@ -24,7 +24,7 @@ const CHickenModel = mongoose.model(
         default: false
       }
   },
-  "chicken"
+  "chickens"
 );
 
 module.exports = { ChickenModel };
