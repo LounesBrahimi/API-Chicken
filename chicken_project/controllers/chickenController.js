@@ -77,4 +77,42 @@ router.post('/', (req, res) => {
     }
   })
 
+
+  // /chicken/run increment the variable steps
+  router.get("/run", (req, res) => {
+
+    ChickenModel.find(  (err, chikens) => {
+      if (!err) {
+        var newChikens = [];
+        chikens.forEach(
+           async function(chicken){
+            const updateRecord = {
+              name: chicken.name,
+              birthday: chicken.birthday,
+              weight: chicken.weight,
+              steps: chicken.steps +1,
+              isRunning: chicken.isRunning
+            };
+            newChikens.push(updateRecord)
+           try {
+            await ChickenModel.findByIdAndUpdate(
+              chicken.id,
+              { $set: updateRecord},
+              { new: true },
+              (err, docs) => {
+                if (err) 
+                  console.log("Update error : ");
+              }
+            ); 
+            
+           } catch (warning) {
+           }
+           
+          });
+          res.send(newChikens)
+      }
+      else console.log("Error to get data : ");
+      });
+  });
+
   module.exports = router;
