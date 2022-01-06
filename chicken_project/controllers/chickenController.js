@@ -66,4 +66,15 @@ router.post('/', (req, res) => {
       })
   });
 
+  // PATCH
+  router.patch("/:id", async (req, res) => {
+    try {
+        const _id = req.params.id;
+        const updatePost = await  ChickenModel.findByIdAndUpdate(_id, req.body);
+        res.send(updatePost);
+    } catch (error) {
+        res.status(400).send(updatePost);
+    }
+  })
+
   module.exports = router;
